@@ -1,21 +1,9 @@
-language: java
+language: android
 jdk: oraclejdk11
-sudo: false
 dist: trusty
 
-env:
-  global:
-    - PROJECT_DIR=${TRAVIS_BUILD_DIR} # Project directory
-
-notifications:
-  email: false
-
-script:
-  - cd ${PROJECT_DIR} && mvn clean install
-
-before_install:
-  - chmod +x gradlew
-
-after_script:
-  - echo "Test Result -> $TRAVIS_TEST_RESULT"
-  - ls -l $TRAVIS_BUILD_DIR/target
+android:
+  components:
+    - build-tool-26.1.1
+    - android-26
+    - extra
