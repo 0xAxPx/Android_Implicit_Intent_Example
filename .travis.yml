@@ -4,8 +4,8 @@ dist: trusty
 
 android:
   components:
-    - build-tool-26.1.1
-    - android-26
+    - build-tool-30.0.2
+    - android-30
     - extra
 
 before_install:
