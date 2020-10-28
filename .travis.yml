@@ -34,11 +34,12 @@ before_install:
 
 before_script:
   # Create and start emulator
+  - android list targets # list pre-installed targets # <---- list all installed targets
+  - android list sdk --no-ui --all --extended | grep -E '^id:' | awk -F '"' '{$1=""; print $2}'
   - echo no | android create avd --force -n test -t "Google Inc.:Google APIs:"$ANDROID_API_LEVEL --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
   - adb wait-for-device
   - adb shell input keyevent 82 &
 
 script:
-  - android list target
   - ./gradlew build
