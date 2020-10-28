@@ -2,24 +2,28 @@ language: android
 jdk: oraclejdk8
 dist: trusty
 
+env:
+  matrix:
+    - ANDROID_TARGET=android-30  ANDROID_ABI=google_apis/armeabi-v7a
+
 android:
   components:
+    - tools
+    - platform-tools
     - build-tool-30.0.2
     - android-30
     - extra
-    - sys-img-armeabi-v7a-android-30
+    - sys-img-armeabi-v7a-$ANDROID_TARGET
 
 before_install:
   - chmod +x gradlew
   - yes | sdkmanager "platforms;android-30"
 
-# Emulator Management: Create, Start and Wait
 before_script:
-  - echo no | android create avd --force -n test -t android-30 --abi armeabi-v7a
+  # Create and start emulator
+  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
+  - adb wait-for-device
   - adb shell input keyevent 82 &
 
-script:
-  - android list target
-  - ./gradlew connectedAndroidTest
+script: ./gradlew connectedAndroidTest
