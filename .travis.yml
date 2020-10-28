@@ -21,8 +21,10 @@ android:
     - platform-tools
     - build-tool-30.0.2
     - android-30
+    - android-22
     - extra
     - sys-img-armeabi-v7a-$ANDROID_TARGET
+    - sys-img-armeabi-v7a-android-22
   licenses:
     - 'android-sdk-preview-license-52d11cd2'
     - 'android-sdk-license-.+'
