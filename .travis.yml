@@ -6,6 +6,15 @@ env:
   matrix:
     - ANDROID_TARGET=android-30  ANDROID_ABI=google_apis/armeabi-v7a ANDROID_API_LEVEL=30
 
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
 android:
   components:
     - tools
@@ -14,6 +23,10 @@ android:
     - android-30
     - extra
     - sys-img-armeabi-v7a-$ANDROID_TARGET
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
 before_install:
   - chmod +x gradlew
@@ -26,4 +39,6 @@ before_script:
   - adb wait-for-device
   - adb shell input keyevent 82 &
 
-script: ./gradlew connectedAndroidTest
+script:
+  - android list target
+  - ./gradlew build
