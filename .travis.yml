@@ -17,8 +17,8 @@ cache:
 
 android:
   components:
-    - tools
-    - platform-tools
+   # - tools
+   # - platform-tools
     - build-tools-24.0.3
     - build-tools-30.0.2
     - $ANDROID_TARGET
