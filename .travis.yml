@@ -23,7 +23,7 @@ android:
     - build-tools-30.0.2
     - $ANDROID_TARGET
     - sys-img-armeabi-v7a-android-24
-    - sys-img-x86_64-android-24
+#    - sys-img-x86_64-android-24
   licenses:
     - 'android-sdk-preview-license-52d11cd2'
     - 'android-sdk-license-.+'
