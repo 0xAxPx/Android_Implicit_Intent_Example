@@ -4,7 +4,7 @@ dist: trusty
 
 env:
   matrix:
-    - ANDROID_TARGET=android-24
+    - ANDROID_TARGET=android-30
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
