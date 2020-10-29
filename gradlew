@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+yes | sdkmanager "build-tools;24.0.3"
+
 ##############################################################################
 ##
 ##  Gradle start up script for UN*X
