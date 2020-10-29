@@ -26,8 +26,8 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 
-#before_install:
-#  - chmod +x gradlew
+before_install:
+  - chmod +x gradlew
 #  - yes | sdkmanager "platforms;$ANDROID_TARGET"
 #
 #before_script:
