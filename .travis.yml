@@ -4,7 +4,7 @@ dist: trusty
 
 env:
   matrix:
-    - ANDROID_TARGET=android-30
+    - ANDROID_TARGET=android-24
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -21,7 +21,6 @@ android:
     - platform-tools
     - build-tools-24.0.3
     - $ANDROID_TARGET
-    - android-24
     - sys-img-armeabi-v7a-android-24
   licenses:
     - 'android-sdk-preview-license-52d11cd2'
